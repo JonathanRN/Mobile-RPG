@@ -938,6 +938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811edbe22ffa2438f8e216d748646275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealthPoints:
+    BaseValue: 100
   canBeTargeted: 1
 --- !u!1 &668494645
 GameObject:
@@ -1296,6 +1298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811edbe22ffa2438f8e216d748646275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealthPoints:
+    BaseValue: 100
   canBeTargeted: 1
 --- !u!1 &863743355
 GameObject:
@@ -1423,6 +1427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811edbe22ffa2438f8e216d748646275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealthPoints:
+    BaseValue: 100
   canBeTargeted: 0
 --- !u!1 &908113148
 GameObject:
@@ -1632,6 +1638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811edbe22ffa2438f8e216d748646275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealthPoints:
+    BaseValue: 100
   canBeTargeted: 1
 --- !u!1 &963194225
 GameObject:
