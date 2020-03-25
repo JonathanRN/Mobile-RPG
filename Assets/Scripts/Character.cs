@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-	[Header("Stats")]
 	[SerializeField]
-	private CharacterStat maxHealthPoints = null;
+	private bool autoGrabComponents = true;
+
+	[SerializeField]
+	private CharacterComponent[] components = null;
 
 	[SerializeField]
 	private bool canBeTargeted = true;
 
-	public int HealthPoints { get; private set; }
 	public bool CanBeTargeted => canBeTargeted;
 	public bool HasTarget => Target != null;
 
@@ -18,9 +19,21 @@ public class Character : MonoBehaviour
 
 	public event Action<Character> OnTargetSet;
 
-	private void Start()
+	private void Awake()
 	{
-		HealthPoints = (int)maxHealthPoints.Value;
+		// Register all components
+		foreach (var component in components)
+		{
+			component.RegisterComponent(this);
+		}
+	}
+
+	private void OnValidate()
+	{
+		if (autoGrabComponents)
+		{
+			components = GetComponentsInChildren<CharacterComponent>();
+		}
 	}
 
 	public void SetTarget(Character newTarget)
@@ -33,29 +46,15 @@ public class Character : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(int amount)
+	public T GetCharacterComponent<T>() where T : CharacterComponent
 	{
-		HealthPoints -= amount;
-		print($"{gameObject.name} took {amount} damage.");
-		if (HealthPoints <= 0)
+		foreach (var component in components)
 		{
-			Die();
+			if (component.GetType().Equals(typeof(T)))
+			{
+				return (T)component;
+			}
 		}
-	}
-
-	public void Heal(int amount)
-	{
-		HealthPoints += amount;
-		print($"{gameObject.name} healed for {amount}.");
-		if (HealthPoints > (int)maxHealthPoints.Value)
-		{
-			HealthPoints = (int)maxHealthPoints.Value;
-		}
-	}
-
-	private void Die()
-	{
-		Destroy(gameObject);
-		print(gameObject.name + " died!");
+		return default;
 	}
 }

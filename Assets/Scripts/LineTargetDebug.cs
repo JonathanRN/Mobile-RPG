@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-public class LineTargetDebug : MonoBehaviour
+public class LineTargetDebug : CharacterComponent
 {
-	[SerializeField]
-	private Character player = null;
-
 	private LineRenderer lineRenderer;
 
 	private void Awake()
@@ -15,10 +12,10 @@ public class LineTargetDebug : MonoBehaviour
 
 	private void Update()
 	{
-		lineRenderer.positionCount = player.HasTarget ? 2 : 0;
-		if (player.HasTarget)
+		lineRenderer.positionCount = Character.HasTarget ? 2 : 0;
+		if (Character.HasTarget)
 		{
-			lineRenderer.SetPositions(new Vector3[] { transform.position, player.Target.transform.position });
+			lineRenderer.SetPositions(new Vector3[] { transform.position, Character.Target.transform.position });
 		}
 	}
 }

@@ -42,6 +42,14 @@ public class CharacterStat
 		statModifiers.Add(mod);
 	}
 
+	public virtual void AddModifiers(StatModifier[] mods)
+	{
+		foreach (var mod in mods)
+		{
+			AddModifier(mod);
+		}
+	}
+
 	public virtual bool RemoveModifier(StatModifier mod)
 	{
 		if (statModifiers.Remove(mod))

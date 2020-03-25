@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-public class CharacterTargeter : MonoBehaviour
+public class CharacterTargeter : CharacterComponent
 {
-	[SerializeField]
-	private Character player = null;
-
 	[SerializeField]
 	private LayerMask layerMask = 0;
 
@@ -24,7 +21,7 @@ public class CharacterTargeter : MonoBehaviour
 				Character target = hit.collider.GetComponent<Character>();
 				if (target != null)
 				{
-					player.SetTarget(target);
+					Character.SetTarget(target);
 				}
 			}
 		}
