@@ -27,7 +27,9 @@ public class AttackAbility : BaseAbility
 		{
 			if (InRange(caster, caster.Target))
 			{
+				base.UseAbility(caster);
 				healthComponent.TakeDamage(damage);
+				Debug.Log($"{caster.name} used {Name} on {caster.Target.name}");
 			}
 			else
 			{

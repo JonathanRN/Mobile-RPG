@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BasicSwing
   m_EditorClassIdentifier: 
   name: BasicSwing
+  icon: {fileID: 21300000, guid: 0008d2f04f1c244f584701ac348bf4de, type: 3}
   cooldown: 2
   range: 3
   targetType: 1
