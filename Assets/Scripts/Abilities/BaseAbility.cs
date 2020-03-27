@@ -45,7 +45,7 @@ public abstract class BaseAbility : ScriptableObject
 
 	// Call every second
 	[UpdateScriptableObject(eventType = EEventType.Update)]
-	public void CallUpdate()
+	public virtual void CallUpdate()
 	{
 		if (!IsReady)
 		{

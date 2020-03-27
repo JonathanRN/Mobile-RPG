@@ -3,7 +3,7 @@
 [CreateAssetMenu(menuName = "Ability/" + nameof(AttackAbility))]
 public class AttackAbility : BaseAbility
 {
-	[Header("Attack Ability")]
+	[Header(nameof(AttackAbility))]
 	[SerializeField]
 	private int damage = 0;
 
